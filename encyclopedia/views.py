@@ -21,9 +21,7 @@ def search(request):
     if user_query:
         entry = util.get_entry(user_query)
         if entry:
-            return render(request, "encyclopedia/title.html", {
-                "entry": entry
-            })
+            return title(request, user_query)
         else:
             pass
 
