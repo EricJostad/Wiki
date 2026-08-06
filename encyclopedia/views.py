@@ -17,7 +17,15 @@ def title(request, entry):
 
 
 def search(request):
-    ...
+    user_query = request.GET.get("q", "")
+    if user_query:
+        entry = util.get_entry(user_query)
+        if entry:
+            return render(request, "encyclopedia/title.html", {
+                "entry": entry
+            })
+        else:
+            pass
 
 
 def new(request):
