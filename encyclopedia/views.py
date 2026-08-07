@@ -1,6 +1,4 @@
-from django.shortcuts import render
-from flask import request
-
+from django.shortcuts import redirect, render
 from . import util
 
 
@@ -21,7 +19,7 @@ def search(request):
     if user_query:
         entry = util.get_entry(user_query)
         if entry:
-            return title(request, user_query)
+            return redirect("encyclopedia:title", user_query)
         else:
             pass
 
