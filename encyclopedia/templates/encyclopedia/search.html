@@ -7,9 +7,13 @@
 {% block body %}
     <h1>Search Results</h1>
     <p>Results for: {{ query }}</p>
+    {% if results %}
     <ul>
         {% for entry in results %}
             <li><a href="{% url 'encyclopedia:title' entry %}">{{ entry }}</a></li>
         {% endfor %}
     </ul>
+    {% else %}
+    <p>No results found.</p>
+    {% endif %}
 {% endblock %}  
