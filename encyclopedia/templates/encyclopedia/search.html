@@ -9,7 +9,7 @@
     <p>Results for: {{ query }}</p>
     <ul>
         {% for entry in results %}
-            <li>{{ entry }}</li>
+            <li><a href="{% url 'encyclopedia:title' entry %}">{{ entry }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}  
