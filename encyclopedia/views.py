@@ -21,7 +21,17 @@ def search(request):
         if entry:
             return redirect("encyclopedia:title", user_query)
         else:
-            pass
+            matches = []
+            entries = util.list_entries()
+            for entry in entries:
+                if user_query.lower() in entry.lower():
+                    matches.append(entry)
+            return render(request, "encyclopedia/search.html", {
+                "query": user_query,
+                "results": matches
+            })
+    else:
+        return None
 
 
 def new(request):
