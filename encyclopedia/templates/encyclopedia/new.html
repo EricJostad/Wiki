@@ -7,6 +7,9 @@
 {% block body %}
     <h1>Create New Page</h1>
 
-    <p>Place holder for new page creation.</p>
+    <form action="{% url 'encyclopedia:new' %}" method="post">
+        {% csrf_token %}    
+        <input class="new" type="text" name="q" placeholder="New Entry Page Title">
+    </form>
 
 {% endblock %}  
