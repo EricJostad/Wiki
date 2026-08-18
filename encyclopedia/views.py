@@ -40,4 +40,6 @@ def search(request):
 
 
 def new(request):
-    return render(request, "encyclopedia/new.html")
+    return render(request, "encyclopedia/new.html", {
+        "form": NewEntryForm()
+    })
