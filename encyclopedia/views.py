@@ -1,5 +1,10 @@
+from django import forms
 from django.shortcuts import redirect, render
 from . import util
+
+
+class NewEntryForm(forms.Form):
+    title = forms.CharField(label="Title", max_length=100)
 
 
 def index(request):
