@@ -44,7 +44,13 @@ def new(request):
     if request.method == "POST":
         form = NewEntryForm(request.POST)
         if form.is_valid():
-            pass
+            title = form.cleaned_data["title"]
+            content = form.cleaned_data["content"]
+            if util.get_entry(title) == None:
+                util.save_entry(title, content)
+                return redirect("encyclopedia:title", title)
+            else:
+                pass
         else:
             return render(request, "encyclopedia/new.html", {
                 "form": form
