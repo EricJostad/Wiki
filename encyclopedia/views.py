@@ -40,6 +40,14 @@ def search(request):
 
 
 def new(request):
+    if request.method == "POST":
+        entry = NewEntryForm(request.POST)
+        if entry.is_valid():
+            pass
+        else:
+            return render(request, "encyclopedia/new.html", {
+                "entry": entry
+            })
     return render(request, "encyclopedia/new.html", {
         "form": NewEntryForm()
     })
