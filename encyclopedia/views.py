@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib import messages
 from django.shortcuts import redirect, render
 from . import util
 
@@ -50,7 +51,8 @@ def new(request):
                 util.save_entry(title, content)
                 return redirect("encyclopedia:title", title)
             else:
-                pass
+                messages.error(
+                    request, "An entry with this title already exists.")
         else:
             return render(request, "encyclopedia/new.html", {
                 "form": form
