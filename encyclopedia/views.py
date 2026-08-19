@@ -5,6 +5,7 @@ from . import util
 
 class NewEntryForm(forms.Form):
     title = forms.CharField(label="Title", max_length=100)
+    content = forms.CharField(label="Content", widget=forms.Textarea)
 
 
 def index(request):
@@ -41,12 +42,12 @@ def search(request):
 
 def new(request):
     if request.method == "POST":
-        entry = NewEntryForm(request.POST)
-        if entry.is_valid():
+        form = NewEntryForm(request.POST)
+        if form.is_valid():
             pass
         else:
             return render(request, "encyclopedia/new.html", {
-                "entry": entry
+                "form": form
             })
     return render(request, "encyclopedia/new.html", {
         "form": NewEntryForm()
