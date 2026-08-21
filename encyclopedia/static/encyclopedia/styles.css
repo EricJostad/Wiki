@@ -12,9 +12,21 @@ h1 {
     padding-top: 20px;
 }
 
-textarea {
+/* textarea {
     height: 90vh;
     width: 80%;
+} */
+
+.NewEntryForm {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.content-textarea {
+    width: 80%;
+    height: auto;
+    margin-bottom: 10px;
 }
 
 .main {
