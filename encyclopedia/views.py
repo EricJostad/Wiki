@@ -10,6 +10,11 @@ class NewEntryForm(forms.Form):
         attrs={"class": "content-textarea"}))
 
 
+class EditEntryForm(forms.Form):
+    content = forms.CharField(label="Content", widget=forms.Textarea(
+        attrs={"class": "content-textarea"}))
+
+
 def index(request):
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries()
