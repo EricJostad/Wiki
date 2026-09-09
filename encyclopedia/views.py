@@ -68,5 +68,11 @@ def new(request):
     })
 
 
-def edit():
-    pass
+def edit(request, entry):
+    if request.method == "GET":
+        content = util.get_entry(entry)
+        form = EditEntryForm(initial={"content": content})
+        return render(request, "encyclopedia/edit.html", {
+            "entry": entry,
+            "form": form
+        })
