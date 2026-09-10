@@ -6,7 +6,8 @@
 
 {% block body %}
     {% if entry %}
-        <p>Description: {{ entry }}</p>
+        <h2>{{ entry }}</h2>
+        <p>{{ content }}</p>
     {% else %}
         <p>Requested entry not found.</p>
     {% endif %}
