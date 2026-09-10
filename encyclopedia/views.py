@@ -76,3 +76,4 @@ def edit(request, entry):
             "entry": entry,
             "form": form
         })
+    print("Editing:", entry)

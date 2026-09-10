@@ -9,7 +9,7 @@
     
     <form class="EditEntryForm" action="{% url 'encyclopedia:edit' entry.title %}" method="post">
         {% csrf_token %}    
-        {{ form }}
+        {{ form.content }}
         <input type="submit" value="Save Changes">
     </form>
     
