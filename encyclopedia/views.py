@@ -78,3 +78,5 @@ def edit(request, entry):
             "entry": entry,
             "form": form
         })
+    elif request.method == "POST":
+        pass
