@@ -98,7 +98,4 @@ def edit(request, entry):
 def random(request):
     entries = util.list_entries()
     random_entry = choice(entries)
-    return render(request, "encyclopedia/title.html", {
-        "entry": random_entry,
-        "content": util.get_entry(random_entry)
-    })
+    return redirect("encyclopedia:title", random_entry)
