@@ -2,6 +2,7 @@ from django import forms
 from django.contrib import messages
 from django.shortcuts import redirect, render
 from . import util
+from random import choice
 
 
 class NewEntryForm(forms.Form):
@@ -92,3 +93,12 @@ def edit(request, entry):
                 "entry": entry,
                 "form": form
             })
+
+
+def random(request):
+    entries = util.list_entries()
+    random_entry = choice(entries)
+    return render(request, "encyclopedia/title.html", {
+        "entry": random_entry,
+        "content": util.get_entry(random_entry)
+    })
