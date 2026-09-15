@@ -100,3 +100,7 @@ def random(request):
     entries = util.list_entries()
     random_entry = choice(entries)
     return redirect("encyclopedia:title", random_entry)
+
+
+def markdown_to_html(content):
+    pass
