@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.shortcuts import redirect, render
 from . import util
 from random import choice
+from markdown2 import Markdown
 
 
 class NewEntryForm(forms.Form):

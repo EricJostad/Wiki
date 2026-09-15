@@ -1,5 +1,3 @@
 # Morrowind
 
-
-
 The Elder Scrolls V: Morrowind is beloved by many fans and there is a call for this elder title to also receive the remake treatment, same as Oblivion.
