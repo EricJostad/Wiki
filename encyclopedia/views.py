@@ -102,5 +102,6 @@ def random(request):
     return redirect("encyclopedia:title", random_entry)
 
 
-def markdown_to_html(content):
-    pass
+def markdown_to_html(entry):
+    markdowner = Markdown()
+    return markdowner.convert(entry)
