@@ -81,4 +81,14 @@ def edit(request, entry):
             "form": form
         })
     elif request.method == "POST":
-        pass
+        form = EditEntryForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data["title"]
+            content = form.cleaned_data["content"]
+            util.save_entry(title, content)
+            return redirect("encyclopedia:title", title)
+        else:
+            return render(request, "encyclopedia/edit.html", {
+                "entry": entry,
+                "form": form
+            })
