@@ -11,6 +11,7 @@ class NewEntryForm(forms.Form):
 
 
 class EditEntryForm(forms.Form):
+    title = forms.CharField(label="Title", max_length=100)
     content = forms.CharField(label="Content", widget=forms.Textarea(
         attrs={"class": "content-textarea"}))
 
@@ -72,8 +73,9 @@ def new(request):
 
 def edit(request, entry):
     if request.method == "GET":
+        title = entry
         content = util.get_entry(entry)
-        form = EditEntryForm(initial={"content": content})
+        form = EditEntryForm(initial={"title": title, "content": content})
         return render(request, "encyclopedia/edit.html", {
             "entry": entry,
             "form": form
