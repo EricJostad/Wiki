@@ -6,7 +6,10 @@
 
 {% block body %}
     {% if entry %}
-        {{ content|safe }}
+        {% if "#" not in content %}
+            <h1>{{ entry }}</h1>
+        {% endif %}
+        {{ converted_content|safe }}
     {% else %}
         <p>Requested entry not found.</p>
     {% endif %}

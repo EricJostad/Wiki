@@ -13,6 +13,6 @@
         {{ form.content }}
         <input type="submit" value="Save Changes">
     </form>
-    <a href="{% url 'encyclopedia:title' entry.title %}">Cancel</a>
+    <a href="{% url 'encyclopedia:entry' entry.title %}">Cancel</a>
     
 {% endblock %}

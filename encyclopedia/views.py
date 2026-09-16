@@ -30,7 +30,8 @@ def entry(request, entry):
     converted_content = markdowner.convert(content)
     return render(request, "encyclopedia/title.html", {
         "entry": entry,
-        "content": converted_content
+        "content": content,
+        "converted_content": converted_content
     })
 
 
@@ -92,7 +93,7 @@ def edit(request, entry):
             content = form.cleaned_data["content"]
             filename = util.title_to_filename(title)
             util.save_entry(filename, content)
-            return redirect("encyclopedia:title", filename)
+            return redirect("encyclopedia:entry", filename)
         else:
             return render(request, "encyclopedia/edit.html", {
                 "entry": entry,
