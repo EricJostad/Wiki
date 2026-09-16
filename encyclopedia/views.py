@@ -61,9 +61,9 @@ def new(request):
             title = form.cleaned_data["title"]
             content = form.cleaned_data["content"]
             if util.get_entry(title) == None:
-                title_stripped = title.strip()
-                util.save_entry(title_stripped, content)
-                return redirect("encyclopedia:title", title_stripped)
+                filename = util.title_to_filename(title)
+                util.save_entry(filename, content)
+                return redirect("encyclopedia:title", filename)
             else:
                 messages.error(
                     request, "An entry with this title already exists.")
@@ -90,9 +90,9 @@ def edit(request, entry):
         if form.is_valid():
             title = form.cleaned_data["title"]
             content = form.cleaned_data["content"]
-            title_stripped = title.strip()
-            util.save_entry(title_stripped, content)
-            return redirect("encyclopedia:title", title_stripped)
+            filename = util.title_to_filename(title)
+            util.save_entry(filename, content)
+            return redirect("encyclopedia:title", filename)
         else:
             return render(request, "encyclopedia/edit.html", {
                 "entry": entry,
