@@ -6,8 +6,7 @@
 
 {% block body %}
     {% if entry %}
-        <h2>{{ entry }}</h2>
-        <p>{{ content }}</p>
+        {{ content|safe }}
     {% else %}
         <p>Requested entry not found.</p>
     {% endif %}
