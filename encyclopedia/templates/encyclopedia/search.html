@@ -10,7 +10,7 @@
     {% if results %}
     <ul>
         {% for entry in results %}
-            <li><a href="{% url 'encyclopedia:title' entry %}">{{ entry }}</a></li>
+            <li><a href="{% url 'encyclopedia:entry' entry %}">{{ entry }}</a></li>
         {% endfor %}
     </ul>
     {% else %}
