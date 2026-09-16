@@ -91,8 +91,10 @@ def edit(request, entry):
         if form.is_valid():
             title = form.cleaned_data["title"]
             content = form.cleaned_data["content"]
-            util.save_entry(title, content)
-            return redirect("encyclopedia:title", title)
+            title_stripped = title.strip()
+            content_stripped = content.strip()
+            util.save_entry(title_stripped, content_stripped)
+            return redirect("encyclopedia:title", title_stripped)
         else:
             return render(request, "encyclopedia/edit.html", {
                 "entry": entry,

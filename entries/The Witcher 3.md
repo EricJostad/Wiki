@@ -1,1 +1,1 @@
-The Witcher 3
+# The Witcher 3: Wild Hunt
