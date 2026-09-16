@@ -24,7 +24,7 @@ def index(request):
     })
 
 
-def title(request, entry):
+def entry(request, entry):
     content = util.get_entry(entry)
     markdowner = Markdown()
     converted_content = markdowner.convert(content)
@@ -39,7 +39,7 @@ def search(request):
     if user_query:
         entry = util.get_entry(user_query)
         if entry:
-            return redirect("encyclopedia:title", user_query)
+            return redirect("encyclopedia:entry", user_query)
         else:
             matches = []
             entries = util.list_entries()
@@ -63,7 +63,7 @@ def new(request):
             if util.get_entry(title) == None:
                 filename = util.title_to_filename(title)
                 util.save_entry(filename, content)
-                return redirect("encyclopedia:title", filename)
+                return redirect("encyclopedia:entry", filename)
             else:
                 messages.error(
                     request, "An entry with this title already exists.")
