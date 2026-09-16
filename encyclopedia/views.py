@@ -103,4 +103,4 @@ def edit(request, entry):
 def random(request):
     entries = util.list_entries()
     random_entry = choice(entries)
-    return redirect("encyclopedia:title", random_entry)
+    return redirect("encyclopedia:entry", random_entry)
