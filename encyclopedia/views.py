@@ -62,8 +62,7 @@ def new(request):
             content = form.cleaned_data["content"]
             if util.get_entry(title) == None:
                 title_stripped = title.strip()
-                content_stripped = content.strip()
-                util.save_entry(title_stripped, content_stripped)
+                util.save_entry(title_stripped, content)
                 return redirect("encyclopedia:title", title_stripped)
             else:
                 messages.error(
@@ -92,8 +91,7 @@ def edit(request, entry):
             title = form.cleaned_data["title"]
             content = form.cleaned_data["content"]
             title_stripped = title.strip()
-            content_stripped = content.strip()
-            util.save_entry(title_stripped, content_stripped)
+            util.save_entry(title_stripped, content)
             return redirect("encyclopedia:title", title_stripped)
         else:
             return render(request, "encyclopedia/edit.html", {
