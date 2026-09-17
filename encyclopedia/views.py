@@ -40,7 +40,7 @@ def search(request):
     if user_query:
         entry = util.get_entry(user_query)
         if entry:
-            return redirect("encyclopedia:entry", user_query)
+            return redirect("encyclopedia:entry", user_query.title())
         else:
             matches = []
             entries = util.list_entries()

@@ -39,4 +39,4 @@ def get_entry(title):
 
 def title_to_filename(title):
     filename = re.sub(r"[^A-Za-z0-9_]", " ", title)
-    return filename
+    return filename.title()
