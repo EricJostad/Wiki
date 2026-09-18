@@ -34,7 +34,7 @@ def entry(request, entry):
     else:
         markdowner = Markdown()
         converted_content = markdowner.convert(content)
-        return render(request, "encyclopedia/title.html", {
+        return render(request, "encyclopedia/entry.html", {
             "entry": entry.title(),
             "content": content,
             "converted_content": converted_content
