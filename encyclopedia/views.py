@@ -26,13 +26,19 @@ def index(request):
 
 def entry(request, entry):
     content = util.get_entry(entry)
-    markdowner = Markdown()
-    converted_content = markdowner.convert(content)
-    return render(request, "encyclopedia/title.html", {
-        "entry": entry,
-        "content": content,
-        "converted_content": converted_content
-    })
+    if content is None:
+        return render(request, "encyclopedia/error.html", {
+            "entry": entry,
+            "message": "Error: The requested page was not found."
+        })
+    else:
+        markdowner = Markdown()
+        converted_content = markdowner.convert(content)
+        return render(request, "encyclopedia/title.html", {
+            "entry": entry,
+            "content": content,
+            "converted_content": converted_content
+        })
 
 
 def search(request):

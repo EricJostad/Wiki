@@ -1,0 +1,10 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block body %}
+    {{ message }}
+    <p>If you would like to create a page for <strong>{{ entry }}</strong>, please click <a href="{% url 'encyclopedia:new' %}">here</a>.</p>
+{% endblock %}
