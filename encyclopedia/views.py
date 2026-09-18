@@ -28,14 +28,14 @@ def entry(request, entry):
     content = util.get_entry(entry)
     if content is None:
         return render(request, "encyclopedia/error.html", {
-            "entry": entry,
+            "entry": entry.title(),
             "message": "Error: The requested page was not found."
         })
     else:
         markdowner = Markdown()
         converted_content = markdowner.convert(content)
         return render(request, "encyclopedia/title.html", {
-            "entry": entry,
+            "entry": entry.title(),
             "content": content,
             "converted_content": converted_content
         })
