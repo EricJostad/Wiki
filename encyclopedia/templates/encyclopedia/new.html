@@ -6,14 +6,12 @@
 
 {% block body %}
     <h1>Create New Page</h1>
-    <div class ="form">
-        <p>Enter a title and content for your new page.</p>
-        <form class="NewEntryForm" action="{% url 'encyclopedia:new' %}" method="post">
-            {% csrf_token %}    
-            {{ form }}
-            <input type="submit" value="Create Page">
-        </form>
-    </div>
+    <p>Enter a title and content for your new page.</p>
+    <form class="NewEntryForm" action="{% url 'encyclopedia:new' %}" method="post">
+        {% csrf_token %}    
+        {{ form }}
+        <input type="submit" value="Create Page">
+    </form>
     {% if messages %}
         {% for message in messages %}
             <div class="alert alert-danger" role="alert">

@@ -9,8 +9,7 @@
     
     <form class="EditEntryForm" action="{% url 'encyclopedia:edit' entry.title %}" method="post">
         {% csrf_token %}    
-        {{ form.title }}
-        {{ form.content }}
+        {{ form }}
         <input type="submit" value="Save Changes">
     </form>
     <a href="{% url 'encyclopedia:entry' entry.title %}">Cancel</a>
