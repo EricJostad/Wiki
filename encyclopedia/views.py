@@ -7,14 +7,18 @@ from markdown2 import Markdown
 
 
 class NewEntryForm(forms.Form):
-    title = forms.CharField(label="Title", max_length=100)
-    content = forms.CharField(label="Content", widget=forms.Textarea(
-        attrs={"class": "content-textarea"}))
+    title = forms.CharField(label="", max_length=100, widget=forms.TextInput(
+        attrs={"placeholder": "Enter title here..."}
+    ))
+    content = forms.CharField(label="", widget=forms.Textarea(
+        attrs={"class": "content-textarea",
+               "placeholder": "Enter content here..."}
+    ))
 
 
 class EditEntryForm(forms.Form):
-    title = forms.CharField(label="Title", max_length=100)
-    content = forms.CharField(label="Content", widget=forms.Textarea(
+    title = forms.CharField(label="", max_length=100)
+    content = forms.CharField(label="", widget=forms.Textarea(
         attrs={"class": "content-textarea"}))
 
 
