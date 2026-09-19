@@ -6,12 +6,11 @@
 
 {% block body %}
     <h1>Edit Entry</h1>
-    
+    <p> Click "Save Changes" to update the entry for <strong>{{ entry.title }}</strong>, or <a href="{% url 'encyclopedia:entry' entry.title %}">cancel</a> to go back. Unsaved changes will be lost.</p>
     <form class="EditEntryForm" action="{% url 'encyclopedia:edit' entry.title %}" method="post">
         {% csrf_token %}    
         {{ form }}
         <input type="submit" value="Save Changes">
     </form>
-    <a href="{% url 'encyclopedia:entry' entry.title %}">Cancel</a>
     
 {% endblock %}
