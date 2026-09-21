@@ -37,6 +37,10 @@ def get_entry(title):
         return None
 
 
+# Utility function to convert a title to a valid filename by replacing non-alphanumeric characters with spaces and capitalizing the first letter of each word.
+# For this function, I am not including the .md extension in the filename, as that logic is handled in the save_entry and get_entry functions.
+# Additionally, I am purposely not standardizing the title to lowercase nor utilizing kebab-case, as that could lead to confusion when displaying the title in the UI.
+# Instead, I am using the title as-is, which allows for more flexibility in how titles are displayed and stored.
 def title_to_filename(title):
     filename = re.sub(r"[^A-Za-z0-9_]", " ", title)
     return filename.title()
