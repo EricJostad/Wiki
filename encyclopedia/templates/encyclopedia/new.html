@@ -10,7 +10,7 @@
     <form class="NewEntryForm" action="{% url 'encyclopedia:new' %}" method="post">
         {% csrf_token %}    
         {{ form }}
-        <input type="submit" value="Create Page">
+        <input class="submit-button" type="submit" value="Create Page">
     </form>
     {% if messages %}
         {% for message in messages %}

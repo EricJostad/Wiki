@@ -43,3 +43,12 @@ h1 {
     height: 75vh;
     resize: vertical;
 }
+
+.submit-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #CC5500;
+    color: white;
+    border: none;
+}
