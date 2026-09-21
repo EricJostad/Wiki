@@ -8,18 +8,22 @@ from markdown2 import Markdown
 
 class NewEntryForm(forms.Form):
     title = forms.CharField(label="", max_length=100, widget=forms.TextInput(
-        attrs={"placeholder": "Enter title here..."}
+        attrs={"class": "title",
+               "placeholder": "Entry title..."}
     ))
     content = forms.CharField(label="", widget=forms.Textarea(
         attrs={"class": "content-textarea",
-               "placeholder": "Enter content here..."}
+               "placeholder": "Entry content..."}
     ))
 
 
 class EditEntryForm(forms.Form):
-    title = forms.CharField(label="", max_length=100)
+    title = forms.CharField(label="", max_length=100, widget=forms.TextInput(
+        attrs={"class": "title"}
+    ))
     content = forms.CharField(label="", widget=forms.Textarea(
-        attrs={"class": "content-textarea"}))
+        attrs={"class": "content-textarea"}
+    ))
 
 
 def index(request):

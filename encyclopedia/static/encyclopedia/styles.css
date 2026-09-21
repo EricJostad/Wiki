@@ -16,7 +16,6 @@ h1 {
     padding: 10px;
 }
 
-
 .search {
     width: 100%;
     font-size: 15px;
@@ -31,4 +30,16 @@ h1 {
 
 .sidebar h2 {
     margin-top: 5px;
+}
+
+.title {
+    width: 30%;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+
+.content-textarea {
+    width: 90%;
+    height: 75vh;
+    resize: vertical;
 }
