@@ -6,6 +6,7 @@ from random import choice
 from markdown2 import Markdown
 
 
+# Custom NewEntryForm and EditEntryForm classes to handle form submissions for creating and editing entries.
 class NewEntryForm(forms.Form):
     title = forms.CharField(label="", max_length=100, widget=forms.TextInput(
         attrs={"class": "title",
@@ -26,12 +27,14 @@ class EditEntryForm(forms.Form):
     ))
 
 
+# Index view to display the list of all entries in the encyclopedia.
 def index(request):
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries()
     })
 
 
+# Entry view to display the content of a specific entry. If the entry does not exist, it renders an error page.
 def entry(request, entry):
     content = util.get_entry(entry)
     if content is None:
@@ -49,6 +52,7 @@ def entry(request, entry):
         })
 
 
+# Search view to handle user search queries. If an exact match is found, it redirects to the entry page. Otherwise, it displays a list of matching entries.
 def search(request):
     user_query = request.GET.get("q", "")
     if user_query:
@@ -69,6 +73,7 @@ def search(request):
         return None
 
 
+# New entry view to handle the creation of new encyclopedia entries. It checks for duplicate titles and saves the new entry if no duplicate found and is valid.
 def new(request):
     if request.method == "POST":
         form = NewEntryForm(request.POST)
@@ -91,6 +96,7 @@ def new(request):
     })
 
 
+# Edit entry view to handle editing existing encyclopedia entries. It pre-fills the form with the current title and content, and saves the changes if valid.
 def edit(request, entry):
     if request.method == "GET":
         title = entry
@@ -115,6 +121,7 @@ def edit(request, entry):
             })
 
 
+# Random entry view to redirect the user to a randomly selected encyclopedia entry.
 def random(request):
     entries = util.list_entries()
     random_entry = choice(entries)
